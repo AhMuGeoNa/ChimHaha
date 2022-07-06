@@ -6,6 +6,24 @@
     {% include 'head.html' %}
     
     <body>
+        <div class="header">
+            <div class="header_resize">
+              <div class="logo">
+                <h1><a href="index.html">침하하<sup>alpha</sup></a></h1>
+              </div>
+              <div class="menu_nav">
+                <ul>
+                  <li class="active"><a href="#"><span>메인 페이지</span></a></li>
+                  <li><a href="#"><span>폭소 게시판</span></a></li>
+                  <li><a href="#"><span>침착맨 일기</span></a></li>
+                  <li><a href="#"><span>침투부 채널</span></a></li>
+                </ul>
+                <div class="clr"></div>
+              </div>
+              <div class="clr"></div>
+              <div class="header_img"><img src={% static "images/banner.png" %} alt="" width="970" height="320" /></div>
+            </div>
+        </div>
         {% block content %}
         {% endblock %}
     </body>

@@ -18,5 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/', include('main.urls'))
+    path('main/', include('main.urls')),
+    path('history/', include('chimchak_siloc.urls'))
 ]

@@ -1,165 +1,484 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>MokoFactory | Blog</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/cufon-yui.js"></script>
-<script type="text/javascript" src="js/arial.js"></script>
-<script type="text/javascript" src="js/cuf_run.js"></script>
-</head>
-<body>
-<div class="main">
-  <div class="header">
-    <div class="header_resize">
-      <div class="logo">
-        <h1><a href="index.html">MokoFactory</a><small>Simple web template</small></h1>
-      </div>
-      <div class="menu_nav">
-        <ul>
-          <li><a href="index.html"><span>Home</span></a></li>
-          <li><a href="support.html"><span>Support</span></a></li>
-          <li><a href="about.html"><span>About Us</span></a></li>
-          <li class="active"><a href="blog.html"><span>Blog</span></a></li>
-          <li><a href="contact.html"><span>Contact Us</span></a></li>
-        </ul>
-        <div class="clr"></div>
-      </div>
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+  <body>
+    <div class="main">
       <div class="clr"></div>
-      <div class="header_img"><img src="images/main_img.jpg" alt="" width="970" height="320" /></div>
-    </div>
-  </div>
-  <div class="clr"></div>
-  <div class="content">
-    <div class="content_resize">
-      <div class="mainbar">
-        <div class="article">
-          <h2><span>A Blog</span> Entry</h2>
-          <div class="clr"></div>
-          <p>Posted by <a href="#">Owner</a> <span>&nbsp;&bull;&nbsp;</span> Filed under <a href="#">templates</a>, <a href="#">internet</a></p>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque. Curabitur vel urna. In tristique orci porttitor ipsum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo. </p>
-          <p>Tagged: <a href="#">orci</a>, <a href="#">lectus</a>, <a href="#">varius</a>, <a href="#">turpis</a></p>
-          <p><a href="#"><strong>Comments (3)</strong></a> <span>&nbsp;&bull;&nbsp;</span> May 27, 2010 <span>&nbsp;&bull;&nbsp;</span> <a href="#"><strong>Edit</strong></a></p>
-        </div>
-        <div class="article">
-          <h2><span>3</span> Responses</h2>
-          <div class="clr"></div>
-          <div class="comment"> <a href="#"><img src="images/userpic.gif" width="40" height="40" alt="" class="userpic" /></a>
-            <p><a href="#">admin</a> Says:<br />
-              April 20th, 2009 at 2:17 pm</p>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.</p>
+      <div class="content">
+        <div class="content_resize">
+          <div class="mainbar">
+            <div class="article">
+              <h2><span>침착맨 연대기</span></h2>
+              <div class="clr"></div>
+              <p>Posted by <a href="#">Dove Kim</a> <span>&nbsp;|&nbsp;</span> Posted on 2022.07.06</p>
+
+              <span style="font-size:18px;"><b>■ 2019년 까지 그의 연대기 3분 요약</b></span>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/TyjEDUO0ngY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <p>Tagged: <a href="#">orci</a>, <a href="#">lectus</a>, <a href="#">varius</a>, <a href="#">turpis</a></p>
+              <p><a href="#"><strong>Comments (3)</strong></a> <span>&nbsp;&bull;&nbsp;</span> May 27, 2010 <span>&nbsp;&bull;&nbsp;</span> <a href="#"><strong>Edit</strong></a></p>
+            </div>
+            <div class="article">
+              <h2><span>3</span> Responses</h2>
+              <div class="clr"></div>
+              <div class="comment"> <a href="#"><img src={% static "images/userpic.gif" %} width="40" height="40" alt="" class="userpic" /></a>
+                <p><a href="#">admin</a> Says:<br />
+                  April 20th, 2009 at 2:17 pm</p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.</p>
+              </div>
+            </div>
+            <div class="article">
+              <h2><span>Leave a</span> Reply</h2>
+              <div class="clr"></div>
+              <form action="#" method="post" id="leavereply">
+                <ol>
+                  <li>
+                    <label for="name">Name (required)</label>
+                    <input id="name" name="name" class="text" />
+                  </li>
+                  <li>
+                    <label for="email">Email Address (required)</label>
+                    <input id="email" name="email" class="text" />
+                  </li>
+                  <li>
+                    <label for="website">Website</label>
+                    <input id="website" name="website" class="text" />
+                  </li>
+                  <li>
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="8" cols="50"></textarea>
+                  </li>
+                  <li>
+                    <input type="image" name="imageField" id="imageField" src = {% static "images/submit.gif"  %} class="send" />
+                    <div class="clr"></div>
+                  </li>
+                </ol>
+              </form>
+            </div>
           </div>
-          <div class="comment"> <a href="#"><img src="images/userpic.gif" width="40" height="40" alt="" class="userpic" /></a>
-            <p><a href="#">Owner</a> Says:<br />
-              April 20th, 2009 at 3:21 pm</p>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo.</p>
+          <div class="sidebar">
+            <div class="search">
+              <form id="form" name="form" method="post" action="#">
+                <span>
+                <input name="q" type="text" class="keywords" id="textfield" maxlength="50" value="Search..." />
+                </span>
+                <input name="b" class="button" />
+              </form>
+            </div>
+            <div class="gadget">
+              <h2>Sidebar Menu</h2>
+              <div class="clr"></div>
+              <ul class="sb_menu">
+                <li><a href="#">● 메인 페이지</a></li>
+                <li><a href="#">● 침착맨 일기</a></li>
+                <li><a href="#">● 침착 실록 </a></li>
+                <li>● 깔깔 유머
+                  <ol class="submenu1">
+                    <li><a href="#">○ 폭소 게시판</a></li>
+                    <li><a href="#">○ 내수용 폭소 게시판</a></li>
+                    <li><a href="#">○ 노잼 게시판</a></li>
+                    <li><a href="#">○ 유머 심판대</a></li>
+                  </ol>
+                </li>
+                <hr style="border: 1px dashed;"
+                
+                <li>● 침투부 채널
+                  <ol class="submenu1">
+                    <li>$ 침투부 재생목록$</li>
+                    <hr>
+  
+                    <li><a href="https://www.youtube.com/playlist?list=PLif_jr7pPZACSLJuDn8N1j_1jWudgxpi-">○ 침펄 인물사전</a></li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLif_jr7pPZACIf_-P3h9zwIa_ygaCPMqO">○ 침착맨 삼국지 인물전</a></li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLif_jr7pPZACAXuOjNHP_FDKuOQ30Gj5l">○ 침착맨 몰아보기 합본판</a></li>
+                    <hr style="border: 1px dashed;">
+  
+                    <li>$ 침투부 연도별 몰아보기 $</li>
+                    <hr>
+                    <li><a href="https://www.youtube.com/playlist?list=PLif_jr7pPZAD8EJtkFBBctqm5L38JqtGb">○ 2022년 침착맨 정주행</a></li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLif_jr7pPZADJ2MJ-iHlgLijM6xkCaFlo">○ 2021년 침착맨 정주행</a></li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLif_jr7pPZADliLF8xwsm7BJHUqq_CUKo">○ 2020년 침착맨 정주행</a></li>
+                  </ol>
+                </li>
+              </ul>
+            </div>
+
           </div>
-          <div class="comment"> <a href="#"><img src="images/userpic.gif" width="40" height="40" alt="" class="userpic" /></a>
-            <p><a href="#">admin</a> Says:<br />
-              April 20th, 2009 at 2:17 pm</p>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.</p>
+          <div class="clr"></div>
+        </div>
+      </div>
+      <div class="fbg">
+        <div class="fbg_resize">
+          <div class="col c1">
+            <h2><span>Lorem Ipsum</span></h2>
+            <p>Lorem ipsum dolor<br />
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. <a href="#">Morbi tincidunt, orci ac convallis aliquam</a>, lectus turpis varius lorem, eu posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum odio, ac blandit ante orci ut diam.</p>
           </div>
-        </div>
-        <div class="article">
-          <h2><span>Leave a</span> Reply</h2>
+          <div class="col c2">
+            <h2><span>Contact</span></h2>
+            <p>Nullam quam lorem, tristique non vestibulum nec, consectetur in risus. Aliquam a quam vel leo gravida gravida eu porttitor dui. Nulla pharetra, mauris vitae interdum dignissim, justo nunc suscipit ipsum. <a href="#">mail@example.com</a><br />
+              <a href="#">+1 (123) 444-5677</a></p>
+          </div>
           <div class="clr"></div>
-          <form action="#" method="post" id="leavereply">
-            <ol>
-              <li>
-                <label for="name">Name (required)</label>
-                <input id="name" name="name" class="text" />
-              </li>
-              <li>
-                <label for="email">Email Address (required)</label>
-                <input id="email" name="email" class="text" />
-              </li>
-              <li>
-                <label for="website">Website</label>
-                <input id="website" name="website" class="text" />
-              </li>
-              <li>
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" rows="8" cols="50"></textarea>
-              </li>
-              <li>
-                <input type="image" name="imageField" id="imageField" src="images/submit.gif" class="send" />
-                <div class="clr"></div>
-              </li>
-            </ol>
-          </form>
+        </div>
+        <div class="footer">
+          <p class="lf">&copy; Copyright <a href="#">MyWebSite</a>.</p>
+          <p class="rf">Layout by Free <a href="http://www.freewebsitetemplatez.com/">Website Templates</a></p>
+          <div class="clr"></div>
         </div>
       </div>
-      <div class="sidebar">
-        <div class="search">
-          <form id="form" name="form" method="post" action="#">
-            <span>
-            <input name="q" type="text" class="keywords" id="textfield" maxlength="50" value="Search..." />
-            </span>
-            <input name="b" type="image" src="images/search.gif" class="button" />
-          </form>
-        </div>
-        <div class="gadget">
-          <h2>Sidebar Menu</h2>
-          <div class="clr"></div>
-          <ul class="sb_menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">TemplateInfo</a></li>
-            <li><a href="#">Style Demo</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Archives</a></li>
-          </ul>
-        </div>
-        <div class="gadget">
-          <h2><span>Sponsors</span></h2>
-          <div class="clr"></div>
-          <ul class="ex_menu">
-            <li><a href="http://www.dreamtemplate.com">DreamTemplate</a><br />
-              Over 6,000+ Premium Web Templates</li>
-            <li><a href="http://www.templatesold.com/">TemplateSOLD</a><br />
-              Premium WordPress &amp; Joomla Themes</li>
-            <li><a href="http://www.imhosted.com">ImHosted.com</a><br />
-              Affordable Web Hosting Provider</li>
-            <li><a href="http://www.myvectorstore.com">MyVectorStore</a><br />
-              Royalty Free Stock Icons</li>
-            <li><a href="http://www.evrsoft.com">Evrsoft</a><br />
-              Website Builder Software &amp; Tools</li>
-            <li><a href="http://www.csshub.com/">CSS Hub</a><br />
-              Premium CSS Templates</li>
-          </ul>
-        </div>
-        <div class="gadget">
-          <h2>Wise Words</h2>
-          <div class="clr"></div>
-          <p> <img src="images/test_1.gif" alt="" width="19" height="20" /> <em>We can let circumstances rule us, or we can take charge and rule our lives from within </em>.<img src="images/test_2.gif" alt="" width="19" height="20" /></p>
-          <p style="float:right;"><strong>Earl Nightingale</strong></p>
-        </div>
-      </div>
-      <div class="clr"></div>
     </div>
-  </div>
-  <div class="fbg">
-    <div class="fbg_resize">
-      <div class="col c1">
-        <h2><span>Image Gallery</span></h2>
-        <a href="#"><img src="images/gallery_1.jpg" width="58" height="58" alt="" /></a> <a href="#"><img src="images/gallery_2.jpg" width="58" height="58" alt="" /></a> <a href="#"><img src="images/gallery_3.jpg" width="58" height="58" alt="" /></a> <a href="#"><img src="images/gallery_4.jpg" width="58" height="58" alt="" /></a> <a href="#"><img src="images/gallery_5.jpg" width="58" height="58" alt="" /></a> <a href="#"><img src="images/gallery_6.jpg" width="58" height="58" alt="" /></a> </div>
-      <div class="col c2">
-        <h2><span>Lorem Ipsum</span></h2>
-        <p>Lorem ipsum dolor<br />
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. <a href="#">Morbi tincidunt, orci ac convallis aliquam</a>, lectus turpis varius lorem, eu posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum odio, ac blandit ante orci ut diam.</p>
-      </div>
-      <div class="col c3">
-        <h2><span>Contact</span></h2>
-        <p>Nullam quam lorem, tristique non vestibulum nec, consectetur in risus. Aliquam a quam vel leo gravida gravida eu porttitor dui. Nulla pharetra, mauris vitae interdum dignissim, justo nunc suscipit ipsum. <a href="#">mail@example.com</a><br />
-          <a href="#">+1 (123) 444-5677</a></p>
-      </div>
-      <div class="clr"></div>
-    </div>
-    <div class="footer">
-      <p class="lf">&copy; Copyright <a href="#">MyWebSite</a>.</p>
-      <p class="rf">Layout by Free <a href="http://www.freewebsitetemplatez.com/">Website Templates</a></p>
-      <div class="clr"></div>
-    </div>
-  </div>
-</div>
-<div align=center>This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div></body>
-</html>
+    <div align=center>This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div>
+
+  <style>
+    body {
+      margin:0;
+      padding:0;
+      width:100%;
+      color:#9a9a9a;
+      font:normal 12px/1.8em Arial, Helvetica, sans-serif;
+    }
+    html, .main {
+      padding:0;
+      margin:0;
+      background:#f9f9f9 top repeat-x;
+    }
+    .clr {
+      clear:both;
+      padding:0;
+      margin:0;
+      width:100%;
+      font-size:0;
+      line-height:0;
+    }
+    .logo {
+      padding:20px 0 20px 0;
+      margin:0 auto;
+      width:450px;
+      float:left;
+    }
+    .logo img {
+      float:left;
+      margin:0 10px 0 0;
+    }
+    h1 {
+      margin:0;
+      padding:5px 0;
+      width:300px;
+      color:#fff;
+      font:normal 46px/1.2em Arial, Helvetica, sans-serif;
+      letter-spacing:-2px;
+    }
+    h1 a, h1 a:hover {
+      color:#fff;
+      text-decoration:none;
+    }
+    h1 small {
+      text-align:left;
+      float:left;
+      width:130px;
+      color:#fff;
+      display:block;
+      padding:3px 0 0 0;
+      font:normal 12px/1.2em Arial, Helvetica, sans-serif;
+      letter-spacing:normal;
+    }
+    h2 {
+      font:normal 24px Arial, Helvetica, sans-serif;
+      padding:0;
+      margin:5px 0;
+      color:#595959;
+    }
+    p {
+      margin:8px 0;
+      padding:0 0 8px 0;
+      font:normal 12px/1.8em Arial, Helvetica, sans-serif;
+    }
+    p.spec {
+      text-align:right;
+    }
+    a {
+      color:#2cadff;
+      text-decoration:none;
+    }
+    a:hover {
+      text-decoration:underline;
+    }
+    a.rm, a.com {
+      margin-left:8px;
+      padding:9px 12px;
+      background:repeat-x top;
+      text-decoration:none;
+      color:#fff;
+    }
+    .header, .content, .menu_nav, .fbg, .footer, form, ol, ol li, ul, .content .mainbar, .content .sidebar {
+      margin:0;
+      padding:0;
+    }
+    .header {
+      background:#4d9eb3;
+    }
+    .header_resize {
+      margin:0 auto;
+      padding:3px 0 0 0;
+      width:970px;
+      background:#4d9eb3;
+    }
+    .header_img {
+      width:970px;
+      padding:20px 0 -20px 0;
+    }
+    .menu_nav {
+      margin:30px 0 0 0;
+      padding:3px 0 0 10px;
+      float:right;
+      width:500px;
+      height:37px;
+      background:top no-repeat;
+    }
+    .menu_nav ul {
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+    .menu_nav li {
+      float:left;
+      padding:0 5px;
+    }
+    .menu_nav li a {
+      font:normal 13px Arial, Helvetica, sans-serif;
+      color:#fff;
+      display:block;
+      float:left;
+      padding:10px 0;
+    }
+    .menu_nav li a span {
+      background:none;
+      padding:10px 15px;
+    }
+    .menu_nav li a:hover {
+      text-decoration:none;
+      color:#ffff00;
+    }
+    .menu_nav li a:hover span {
+      text-decoration:none;
+      color:#ffff00;
+    }
+    .menu_nav li.active a {
+      text-decoration:none;
+      color:#ffff00;
+    }
+    .menu_nav li.active a span {
+      text-decoration:none;
+      color:#ffff00;
+    }
+    .search {
+      margin:0;
+      padding:20px 0;
+      width:270px;
+    }
+    .search form {
+      padding:0;
+      margin:0;
+    }
+    .search span {
+      display:block;
+      float:left;
+      background:#fff;
+      border:1px solid #dcdcdd;
+      width:200px;
+      padding:0 10px;
+      height:29px;
+      margin:0;
+    }
+    .search form .keywords {
+      width:200px;
+      line-height:13px;
+      height:13px;
+      float:left;
+      background:none;
+      border:0;
+      padding:8px 0px;
+      margin:0;
+      font:normal 11px Arial, Helvetica, sans-serif;
+      color:#767676;
+    }
+    .search form .button {
+      float:left;
+      margin:0;
+      padding:0;
+      border:0;
+      position:relative;
+    }
+    .content {
+      padding:10px 0 0 0;
+    }
+    .content_resize {
+      margin:0 auto;
+      padding:20px 0 0 0;
+      width:970px;
+    }
+    .content .mainbar {
+      margin:0;
+      float:right;
+    }
+    .content .mainbar img {
+      float:left;
+      padding:4px;
+      margin:0 10px 0 0;
+      background-color:#dfdfdf;
+    }
+    .content .mainbar .article {
+      margin:0 0 20px 0;
+      padding:30px 20px;
+      width:610px;
+    }
+    .content .mainbar .article span.butons a {
+      margin:0 5px 0 0;
+      float:right;
+      color:#9a9a9a;
+      padding:1px 10px;
+      text-decoration:none;
+      border:1px solid #ebe8e8;
+      background:#fbfbfc;
+    }
+    .content .mainbar .article span.butons a:hover {
+      border:1px solid #d9f0ff;
+      background:#40b5ff;
+      color:#fff;
+      text-decoration:none;
+    }
+    .content .mainbar .article span.butons a.active {
+      border:1px solid #ebe8e8;
+      background:#40b5ff;
+      color:#fff;
+      text-decoration:none;
+    }
+    .content .sidebar {
+      margin:0;
+      padding:0;
+      float:left;
+    }
+    .content .sidebar .gadget {
+      margin:0 0 20px 0;
+      padding:30px 20px;
+      width:230px;
+    }
+    .gadget ul, ol, li {list-style: none;}
+    .gadget ul::after {
+      /* 자식 요소인 li의 flat 해제 */
+    }
+    .content .mainbar .comment {
+      margin:0;
+      padding:16px 0 0 0;
+    }
+    .content .mainbar .comment img.userpic {
+      border:1px solid #dedede;
+      margin:10px 16px 0 0;
+      padding:0;
+      float:left;
+    }
+    .fbg {
+      padding:10px 0 0 0;
+      background:#2e353a bottom repeat-x;
+      margin:10px 0 0 0;
+    }
+    .fbg_resize {
+      margin:0 auto;
+      padding:20px 20px;
+      width:970px;
+    }
+    .fbg h2 {
+      color:#f9f9f9;
+    }
+    .fbg p {
+      color:#959595;
+    }
+    .fbg a {
+      color:#51aac0;
+      text-decoration:none;
+    }
+    .fbg img {
+      padding:4px;
+      border:1px solid #cfd2d4;
+      background-color:#fff;
+    }
+    .fbg .col {
+      margin:0;
+      float:left;
+    }
+    .fbg .c1 {
+      padding:0 16px 0 0;
+      width:266px;
+    }
+    .fbg .c2 {
+      padding:0 16px;
+      width:300px;
+    }
+    .fbg .c3 {
+      padding:0 0 0 16px;
+      width:260px;
+    }
+    .fbg .c1 img {
+      margin:8px;
+    }
+    .fbg .c3 img {
+      margin:8px 16px 4px 0;
+      float:left;
+    }
+    .footer {
+      width:970px;
+      margin:0 auto;
+      padding:40px 0 20px 0;
+    }
+    .footer p {
+      margin:0;
+      padding:4px 0;
+      line-height:normal;
+    }
+    .footer a {
+      color:#959595;
+      padding:inherit;
+      text-decoration:underline;
+    }
+    .footer a:hover {
+      text-decoration:none;
+    }
+    .footer .lf {
+      float:left;
+    }
+    .footer .rf {
+      float:right;
+    }
+    ol {
+      list-style:none;
+    }
+    ol li {
+      display:block;
+      clear:both;
+    }
+    ol li label {
+      display:block;
+      margin:0;
+      padding:16px 0 0 0;
+    }
+    ol li input.text {
+      width:480px;
+      border:1px solid #c0c0c0;
+      margin:2px 0;
+      padding:5px 2px;
+      height:16px;
+      background:#fff;
+    }
+    ol li textarea {
+      width:480px;
+      border:1px solid #c0c0c0;
+      margin:2px 0;
+      padding:2px;
+      background:#fff;
+    }
+    ol li .send {
+      margin:16px 0 0 0;
+    }
+    
+  </style>
+{% endblock %}

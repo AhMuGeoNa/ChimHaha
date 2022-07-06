@@ -6,24 +6,6 @@
 {% block content %}
 
   <div class="main">
-    <div class="header">
-      <div class="header_resize">
-        <div class="logo">
-          <h1><a href="index.html">침하하<sup>alpha</sup></a></h1>
-        </div>
-        <div class="menu_nav">
-          <ul>
-            <li class="active"><a href="#"><span>메인 페이지</span></a></li>
-            <li><a href="#"><span>폭소 게시판</span></a></li>
-            <li><a href="#"><span>침착맨 일기</span></a></li>
-            <li><a href="#"><span>침투부 채널</span></a></li>
-          </ul>
-          <div class="clr"></div>
-        </div>
-        <div class="clr"></div>
-        <div class="header_img"><img src={% static "images/banner.png" %} alt="" width="970" height="320" /></div>
-      </div>
-    </div>
     <div class="clr"></div>
     <div class="content">
       <div class="content_resize">
@@ -43,7 +25,7 @@
                   {% endwith %}
                 </div>
                 <div>
-                  <span style="font-size:21px;"><b>■ {{ videos.titles }}</b></span>
+                  <span style="font-size:18px;"><b>■ {{ videos.titles }}</b></span>
                   <p>posted on | {{ published_date }}</p>
                 </div>
               {% else %}
@@ -53,7 +35,7 @@
                   </a>
                 </div>
                 <div>
-                  <span style="font-size:21px;"><b>■</b>침착맨 채널로 가기</span>
+                  <span style="font-size:18px;"><b>■</b>침착맨 채널로 가기</span>
                   <p>since | 2014.09.30</p>
                 </div>
               {% endif %}

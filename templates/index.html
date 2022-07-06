@@ -33,17 +33,30 @@
             <hr>
             <div class="clr"></div>
             <div class="row">
-              <div>
-                {% with videos.ids|add_urlpath as url%}
-                  <a href={{ url }}>
-                    <img src={{ videos.thumbnails }} width="320" height="179" alt="" />
+              
+              {% if videos != None%} 
+                <div>
+                  {% with videos.ids|add_urlpath as url%}
+                    <a href={{ url }}>
+                      <img src={{ videos.thumbnails }} width="320" height="179" alt="" />
+                    </a>
+                  {% endwith %}
+                </div>
+                <div>
+                  <span style="font-size:21px;"><b>■ {{ videos.titles }}</b></span>
+                  <p>posted on | {{ published_date }}</p>
+                </div>
+              {% else %}
+                <div>
+                  <a href="https://www.youtube.com/user/zilioner83">
+                    <img src={% static "images/logo.png" %}
                   </a>
-                {% endwith %}
-              </div>
-              <div>
-                <span style="font-size:21px;"><b>■ {{ videos.titles }}</b></span>
-                <p>posted on | {{ published_date }}</p>
-              </div>
+                </div>
+                <div>
+                  <span style="font-size:21px;"><b>■</b>침착맨 채널로 가기</span>
+                  <p>since | 2014.09.30</p>
+                </div>
+              {% endif %}
             </div>
             <div class="clr"></div>
             <hr>

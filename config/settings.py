@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
-    'chimchak_siloc.apps.ChimchakSilocConfig'
+    # 'chimchak_siloc.apps.ChimchakSilocConfig'
+    'experiment.apps.ExperimentConfig',
 ]
 
 MIDDLEWARE = [

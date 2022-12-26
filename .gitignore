@@ -1,4 +1,17 @@
+## 데이터 보호
+templates/static/model
+node_modules/**/*
+**/*.sqlite3
+package*
+**/*.csv
 log/*
+
+## 실행파일 보호
+**/*.sh
+
+## 그냥 보기 싫은 것들 
 youtube_test.py
 **/*-checkpoint*
 **/*.pyc
+
+

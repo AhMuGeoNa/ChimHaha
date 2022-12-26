@@ -18,7 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/', include('main.urls')),
+    path('', include('main.urls')),
     path('history/', include('chimchak_siloc.urls')),
-    path('experiment/', include('experiment.urls'))
+    path('exp/', include('experiment.urls'))
 ]

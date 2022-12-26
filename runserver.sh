@@ -17,4 +17,4 @@ today=$(date "+%Y-%m-%d")
 echo ${today}
 
 echo "\n장고를 실행합니다."
-nohup python manage.py runserver 0:8000 > /config/workspace/project/ChimHaha/log/${today}_django.out &
+nohup python manage.py runserver 0:8899 > /config/workspace/project/ChimHaha/log/${today}_django.out &

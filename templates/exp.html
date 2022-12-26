@@ -1,0 +1,16 @@
+<html lang="ko">
+
+{% load static %}
+<head>
+    <title>tfjs 사용해보기</title>
+    <head><h1>tensorflow.js 로딩아 제발 좀 되어라</h1></head>
+    <body>
+        <input type = "file" id = "upload-json" />
+    </body>
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+<script type="module">
+    const model = await tf.loadGraphModel('file://static/model/model.json'); 
+</script>
+

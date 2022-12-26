@@ -3,4 +3,4 @@ from datetime import datetime
 
 def experiment(request):
 
-    return render(request, 'experiment.html', context = {})
+    return render(request, 'exp.html', context = {})

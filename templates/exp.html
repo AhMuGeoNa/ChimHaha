@@ -10,7 +10,12 @@
 </head>
 
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+<script type="text/javascript" src={% static "model/model.json" %}?></script>
 <script type="module">
-    const model = await tf.loadGraphModel('file://static/model/model.json'); 
+   
+   const URL =
+    'https://tfhub.dev/google/tfjs-model/imagenet/mobilenet_v3_small_100_224/feature_vector/5/default/1';
+
+     mobilenet = await tf.loadGraphModel(URL, {fromTFHub: true});
 </script>
 

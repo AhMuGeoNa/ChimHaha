@@ -1,4 +1,25 @@
+## 데이터 보호
+node_modules/**/*
+**/*/model.json
+**/*.sqlite3
+**/dataset/*
+**/*.bin
+package*
+**/*.csv
 log/*
+
+## 실행파일 보호
+**/*.sh
+*.sh
+
+## 그냥 보기 싫은 것들 
 youtube_test.py
 **/*-checkpoint*
 **/*.pyc
+**/.DS_Store
+
+
+## 압축 파일 보호
+**/*.tar.gz
+**/*.tar
+**/*.zip

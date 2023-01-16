@@ -1,0 +1,37 @@
+<html lang="ko">
+<head>
+    <title>tfjs 사용해보기</title>
+    <h1>tensorflow.js 로딩되었다 히히</h1>
+</head>
+
+<body>
+    <img src="https://dove-nest.duckdns.org:330/templates/static/cat.jpg" id="cat-image" crossorigin="anonymous">
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
+<script type="module">
+    const model = await tf.loadGraphModel('https://dove-nest.duckdns.org:330/templates/static/model2/model.json');
+    
+    const labels    = ['Cat', 'Dog'];
+    const image     = document.getElementById('cat-image');
+    let   cat_image = tf.browser.fromPixels(image);
+
+    console.log(cat_image); 
+
+    cat_image = tf.image.resizeBilinear(cat_image, [299, 299]);
+    cat_image = tf.reshape(cat_image, [3, 299, 299]);
+    cat_image = tf.expandDims(cat_image, 0);
+    console.log(cat_image.shape);
+
+
+    const prediction = await model.executeAsync(cat_image);
+    const predictionArray = prediction.dataSync();
+    console.log("prediction", prediction);
+
+    const maxValue = predictionArray.indexOf(Math.max(...predictionArray))
+
+    console.log(labels[maxValue])
+</script>
+
+
+

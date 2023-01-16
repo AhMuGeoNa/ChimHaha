@@ -16,5 +16,9 @@ fi
 today=$(date "+%Y-%m-%d")
 echo ${today}
 
-echo "\n장고를 실행합니다."
-nohup python manage.py runserver 0:8000 > /config/workspace/project/ChimHaha/log/${today}_django.out &
+chain_path="../utils/keys/cert/fullchain1.pem"
+key_path="../utils/keys/cert/privkey1.pem"
+
+echo "\n침하하 ssl 서버를 실행합니다."
+nohup python manage.py runsslserver --certificate $chain_path \
+    --key $key_path 0:9330 > /config/workspace/project/ChimHaha/log/${today}_django.out &

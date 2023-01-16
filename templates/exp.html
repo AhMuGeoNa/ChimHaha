@@ -1,21 +1,42 @@
 <html lang="ko">
-
-{% load static %}
 <head>
     <title>tfjs 사용해보기</title>
-    <head><h1>tensorflow.js 로딩아 제발 좀 되어라</h1></head>
-    <body>
-        <input type = "file" id = "upload-json" />
-    </body>
+    <h1>tensorflow.js 로딩되었다 히히</h1>
 </head>
 
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
-<script type="text/javascript" src={% static "model/model.json" %}?></script>
-<script type="module">
-   
-   const URL =
-    'https://tfhub.dev/google/tfjs-model/imagenet/mobilenet_v3_small_100_224/feature_vector/5/default/1';
+<body>
+    <img src="https://dove-nest.duckdns.org:330/templates/static/dataset/image/2.png" id="image" crossorigin="anonymous">
+    <img src="https://dove-nest.duckdns.org:330/templates/static/dataset/mask/2.png" id="mask" crossorigin="anonymous">
+</body>
 
-     mobilenet = await tf.loadGraphModel(URL, {fromTFHub: true});
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
+<script type="module">
+    const model = await tf.loadGraphModel('https://dove-nest.duckdns.org:330/templates/static/tfjs_onnx_model/model.json');
+
+    const image = document.getElementById('image');
+    const mask  = document.getElementById('mask');
+
+    let image_  = tf.browser.fromPixels(image);
+    let mask_   = tf.browser.fromPixels(mask).mean(2).toFloat().expandDims(-1);
+
+    console.log(mask_.shape); 
+
+    image_ = tf.image.resizeBilinear(image_, [256, 256]);
+    image_ = tf.reshape(image_, [3, 256, 256]);
+    image_ = tf.expandDims(image_, 0);
+
+    mask_ = tf.image.resizeBilinear(mask_, [256, 256]);
+    mask_ = tf.reshape(mask_, [1, 256, 256]);
+    mask_ = tf.expandDims(mask_, 0);
+
+    console.log(image_, mask_)
+
+    const prediction = model.executeAsync([image_, mask_]);
+    // const predictionArray = prediction.dataSync();
+    // console.log("prediction", prediction);
+
+    // const maxValue = predictionArray.indexOf(Math.max(...predictionArray))
 </script>
+
+
 

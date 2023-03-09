@@ -37,11 +37,23 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    ## 보안 인증관련 앱
+    'sslserver',
+
+    ## 실제 구현에 사용되는 앱들
     'main.apps.MainConfig',
-    'chimchak_siloc.apps.ChimchakSilocConfig'
+    # 'chimchak_siloc.apps.ChimchakSilocConfig'
+
+    ## 실험용 앱
+    'experiment.apps.ExperimentConfig',
+
+    ## CORS 해결용 앱
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -131,4 +143,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD     = 'django.db.models.BigAutoField'
+CORS_ORIGIN_ALLOW_ALL  = True
